@@ -1,0 +1,249 @@
+/* styles.css */
+
+/* Reset & basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #222;
+  scroll-behavior: smooth;
+}
+
+/* Colors */
+:root {
+  --primary-color: blue;
+  --secondary-color: lightgreen;
+  --nav-bg: var(--primary-color);
+  --nav-text: white;
+  --card-bg: white;
+  --card-hover-bg: var(--secondary-color);
+  --card-hover-text: #fff;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--nav-text);
+  letter-spacing: 1.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Hamburger toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 25px;
+  height: 3px;
+  background-color: var(--nav-text);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  display: block;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* Hero Section */
+.hero {
+  padding-top: 70px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem 4rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #ddd;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.hero-text p {
+  font-size: 1.15rem;
+  color: #444;
+}
+
+/* Sections */
+.section {
+  max-width: 900px;
+  margin: 2rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--secondary-color);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.skill-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  font-weight: 600;
+  color: var(--primary-color);
+  cursor: default;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+  min-width: 150px;
+  text-align: center;
+}
+
+.skill-card:hover {
+  background-color: var(--card-hover-bg);
+  color: var(--card-hover-text);
+  transform: translateY(-5px);
+}
+
+/* Contact */
+.contact-section p {
+  font-size: 1.1rem;
+}
+
+.email-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    background-color: var(--nav-bg);
+    height: calc(100vh - 60px);
+    width: 200px;
+    flex-direction: column;
+    padding-top: 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .nav-link {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+}
